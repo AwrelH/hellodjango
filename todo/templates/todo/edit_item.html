@@ -7,14 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Add a todo item!</h1>
+    <h1>Edit a todo item!</h1>
 
-    <form method="POST" action="add">
+    <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <div class="">
             <p>
-            <button type="submit">Add item</button>
+            <button type="submit">Update item</button>
             </p>
         </div>
 
