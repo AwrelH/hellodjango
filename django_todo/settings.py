@@ -17,7 +17,7 @@ if os.path.exists("env.py"):
     import env
 
 from pathlib import Path
-import dj_database_url 
+import dj_database_url
 
 development = os.environ.get('DEVELOPMENT', False)
 
@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if development:
-    
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -98,8 +98,8 @@ if development:
     }
 else:
     DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
 
 
 # Password validation
