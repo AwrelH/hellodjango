@@ -1,7 +1,4 @@
-import os
 
-if os.path.exists("env.py"):
-    import env
 
 """
 Django settings for django_todo project.
@@ -14,9 +11,13 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
 
+if os.path.exists("env.py"):
+    import env
 
 from pathlib import Path
+import dj_database_url 
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -81,11 +82,15 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://lxbyfbwfjmfpug:8c23a7badba4e7dbb42db32e1997faa22b6974d5b87524e4169fa89ac0cd19a0@ec2-99-81-137-11.eu-west-1.compute.amazonaws.com:5432/d1nu4niq7s2lck')
 }
 
 
